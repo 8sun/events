@@ -9,6 +9,8 @@ var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer');
 
+var stylus = require('gulp-stylus');
+
 gulp.task('build', function () {
     return browserify({entries: 'components/app.jsx', extensions: ['.jsx'], debug: true})
         .transform('babelify', {presets: ['es2015', 'react', 'stage-1'], plugins: ["syntax-async-functions", "transform-decorators-legacy"]})
@@ -33,6 +35,15 @@ gulp.task('build_home', function () {
         .pipe(gulp.dest('assets/js'));
 });
 
+gulp.task('styles', function () {
+  return gulp.src('assets/css/style.styl')
+    .pipe(sourcemaps.init())
+    .pipe(stylus({
+      compress: true
+    }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('assets/css'));
+});
 
 gulp.task('watch', ['build'], function () {
     gulp.watch(['components/main/*.jsx', 'components/*.jsx', 'models/model.js', 'client/client.js', 'db/index.js'], ['build']);
