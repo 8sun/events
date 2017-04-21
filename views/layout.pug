@@ -1,0 +1,29 @@
+html
+  head
+    title= title
+    meta(name="viewport",content="width=device-width, initial-scale=1")
+    link(rel="stylesheet",href="/assets/css/bootstrap.min.css")
+    link(rel="stylesheet",href="/assets/css/style.css")
+  body
+    header
+      div.container
+        div.row
+          div.col-sm-12
+            div.logo
+              a(href="/") Events
+            div.menu
+              a(href="/about") About
+              a(href="/help") Help
+              a(href="/owners") For owners
+
+    section#page
+      div.container
+        div.row
+          div.col-sm-12
+            h3= message
+            h4= title
+
+    section#content
+      block content
+
+    footer
