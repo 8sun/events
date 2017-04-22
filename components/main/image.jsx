@@ -34,9 +34,13 @@ class Avatar extends React.Component {
     return (
       <div className="previewComponent">
         <form onSubmit={(e)=>this._handleSubmit(e)}>
-          <input className="btn btn-success" 
+        <label className="uploadbutton">
+            <span>Upload photo</span>
+            <div className="ui secondary button">Browse</div>
+          <input 
             type="file" 
             onChange={(e)=>this._handleImageChange(e)} />
+        </label>
         </form>
         <div className="imgPreview">
           {$imagePreview}

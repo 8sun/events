@@ -1,52 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Model from '../../models/model';
+import ModalExampleDimmer from './modal';
+import Feed from './feed';
+import { Container, Grid, Image } from 'semantic-ui-react'
 
-const model = new Model();
 
 class Home extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			listEvents: null
-		}
-
-		this.getEvents();
-	}
-
-	getEvents = () => {
-		model.getAllEvents().then(response => {
-
-			const events = response.getAllEvents;
-			const listItems = events.map((item) =>
-				<li key={item.id.toString()}>
-					<h3>
-						<a href={"/event/" + item.id + "/"}>
-							{item.title}
-						</a>
-					</h3>
-					<blockquote dangerouslySetInnerHTML={{__html: item.info}} />
-				</li>
-				);
-
-			this.setState({listEvents: listItems});
-			this.forceUpdate();
-		}); 
-	}
-
 	render() {
-		return <div className="container homepage">
-			<div className="row">
-				<div className="col-sm-8">
-				<h1>Events: </h1>
-					<ul>
-						{this.state.listEvents}
-					</ul>
-				</div>
-				<div className="col-sm-4"></div>
-			</div>
-		</div>;
+
+		const el = document.querySelector(".loader");
+		el.classList.remove("active");
+
+		return <Container>
+    		<Grid padded className="homepage">
+    			<Grid.Row>
+			      <Grid.Column width={3}>
+			        <Image src='/assets/images/wireframe/image.png' />
+			      </Grid.Column>
+			      <Grid.Column width={10}>
+			        <Image src='/assets/images/wireframe/paragraph.png' />
+			      </Grid.Column>
+			      <Grid.Column width={3}>
+			        <Image src='/assets/images/wireframe/image.png' />
+			      </Grid.Column>
+			    </Grid.Row>
+
+			    <Grid.Row>
+			      <Grid.Column computer={10} tablet={8} mobile={16}>
+			        <h1>Events: </h1>
+			        <Feed />
+			      </Grid.Column>
+			      <Grid.Column computer={6} tablet={8} mobile={16}>
+			        <ModalExampleDimmer />
+			      </Grid.Column>
+			    </Grid.Row>
+			  </Grid>
+  		</Container>;
 	}
 }
 

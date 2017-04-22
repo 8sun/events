@@ -2,3 +2,5 @@ _backups
 node_modules
 events.sublime-project
 events.sublime-workspace
+assets/css/components
+assets/images
