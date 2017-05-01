@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Feed, Icon } from 'semantic-ui-react'
-import Model from '../../models/model';
+import Model from '../../models/model_home';
 
 const model = new Model();
 
-class  FeedExampleBasic extends Component {
+class Feeds extends Component {
 
 	constructor(props) {
 		super(props);
@@ -54,4 +54,4 @@ class  FeedExampleBasic extends Component {
 	}
 }
 
-export default FeedExampleBasic
+export default Feeds

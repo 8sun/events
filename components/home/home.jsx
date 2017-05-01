@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ModalExampleDimmer from './modal';
+
 import Feed from './feed';
+import Modal from './modal';
 import { Container, Grid, Image } from 'semantic-ui-react'
 
 
@@ -32,7 +33,7 @@ class Home extends React.Component {
 			        <Feed />
 			      </Grid.Column>
 			      <Grid.Column computer={6} tablet={8} mobile={16}>
-			        <ModalExampleDimmer />
+			        <Modal />
 			      </Grid.Column>
 			    </Grid.Row>
 			  </Grid>

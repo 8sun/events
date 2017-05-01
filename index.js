@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var config = require('./config');
 
 app.set('view engine', 'pug');
 
@@ -14,6 +15,8 @@ app.get('/about', require('./routes/about'));
 
 app.post('/upload', require('./routes/upload').upload);
 app.delete('/rm_av', require('./routes/upload').remove);
+
+app.get('/sendMail', require('./routes/mail'));
 
 app.use(function(req, res, next) {
   if (req.url == '/forbidden') {
@@ -32,6 +35,6 @@ app.use(function(err, req, res, next) {
   res.status(500).render('error', { title: 'Events. The easy service to share your events', message: 'Sorry. Something broke!' })
 });
 
-app.listen(3000, function () {
+app.listen(config.port, function () {
   console.log('Example app listening on port 3000!');
 });

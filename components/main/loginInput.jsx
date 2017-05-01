@@ -15,7 +15,7 @@ class FormExampleSubComponentControl extends Component {
 
   handleClick = () => {
     if (this.state.inputvalue) {
-      this.props.Model.enter(this.state.inputvalue, this.state.selectvalue);
+      this.props.model.enter(this.state.inputvalue, this.state.selectvalue);
     }
   }
 

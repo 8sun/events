@@ -7,14 +7,17 @@ import { observer } from 'mobx-react';
 class Welcome extends React.Component {
 
 	palm() {
-		if (this.props.Model.isEnter) {
-			return <Content Model={this.props.Model} />
+		if (this.props.model.isEnter) {
+			return <Content model={this.props.model} />
 		} else {
-			return <LoginForm Model={this.props.Model} />;
+			return <LoginForm model={this.props.model} />;
 		}
 	}
 
     render() {
+    	const el = document.querySelector(".loader");
+		el.classList.remove("active");
+		
         return <div className="page">{this.palm()}</div>;
     }
 }

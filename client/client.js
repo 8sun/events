@@ -101,5 +101,55 @@ export default {
 			}
 		}
 		`);
-	}
+	},
+
+	writeComment(event_id, user_id, img, name, comment_text) {
+		return client.mutate(`
+		{
+			writeComment(event_id: ${event_id}, user_id: "${user_id}", img: "${img}", name: "${name}", comment_text: "${comment_text}") {
+				error {
+					key,
+					message,
+				},
+				_id,
+				user_id,
+				event_id,
+				img
+				name
+				comment_text,
+				created,
+			}
+		}
+		`);
+	},
+
+	readComments(event_id) {
+
+		return client.query(`
+		{
+			readComments(event_id: ${event_id}) {
+				error {
+					key,
+					message,
+				},
+				_id,
+				user_id,
+				img
+				name
+				event_id,
+				comment_text,
+				created,
+			}
+		}
+		`);
+	},
+
+	deleteComment(_id) {
+
+		return client.mutate(`
+		{
+			deleteComment(_id: "${_id}")
+		}
+		`);
+	},
 }

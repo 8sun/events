@@ -15,15 +15,15 @@ class Avatar extends React.Component {
     let file = e.target.files[0];
 
     reader.onloadend = () => {
-      this.props.Model.file = file,
-      this.props.Model.imagePreviewUrl = reader.result
+      this.props.model.file = file,
+      this.props.model.imagePreviewUrl = reader.result
     }
 
     reader.readAsDataURL(file)
   }
 
   render() {
-    let {imagePreviewUrl} = this.props.Model;
+    let {imagePreviewUrl} = this.props.model;
     let $imagePreview = null;
     if (imagePreviewUrl) {
       $imagePreview = (<img src={imagePreviewUrl} />);

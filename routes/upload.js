@@ -16,8 +16,10 @@ module.exports.upload = function (req, res) {
 			let fl = originalFilename.split('.'); 
 			let ext = fl[fl.length-1]; 
 
-			let filename = "img_" + Date.now() + "." + ext;
+			// for blob
+			if (ext == 'blob') ext = 'png';
 
+			let filename = "img_" + Date.now() + "." + ext;
 
 			let newPath = "./images/" + filename;
 

@@ -60,12 +60,12 @@ ul
 
 .content
     div
-        font-family Gotham
+        // font-family Gotham
 
 .bg-success
     padding 15px
 
-.user
+.userline
     height 40px
     background #FDF6E3
     justify-content space-around
@@ -167,3 +167,34 @@ label.uploadbutton span
     font-weight 700
     text-transform: none
     font-size .92857143em
+    
+.comment .text
+    white-space pre-line
+    
+.slider
+    position relative
+    overflow hidden
+    width 500px
+    height 500px
+    
+.crop
+    position absolute
+    left 0px
+    width 500px
+    height 500px
+    transition 1s
+
+.name
+    position absolute
+    left 0px
+    width 500px
+    height 500px
+    transition 1s
+    
+.crop-hide
+    transition 1s
+    left -500px
+
+.name-hide
+    transition 1s
+    left 500px

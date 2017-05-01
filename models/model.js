@@ -67,19 +67,6 @@ class Model {
     }, resolve => this.error = resolve);
   }
 
-  unsubscribe() {
-    localStorage.removeItem('img');
-    if(this.imgSrc != false) {
-      this.removeImage(this.imgSrc);
-    }
-    this.isSubscribe().then(res => {
-      if(res) {
-        this.removeAllSubscribe();
-      }
-      localStorage.removeItem('userdata');
-      this.isEnter = false;
-    });
-  }
 
   makeImage() {
     let imgr = this.uploadImage(this.file);
@@ -126,26 +113,6 @@ class Model {
     });
   }
 
-  subscribe(email, inTheme) {
-    return client.subscribe(this.event_id, this.user_id, email, this.imgSrc, this.name, inTheme);
-  }
-
-  isSubscribe() {
-    return client.isSubscribe(this.event_id, this.user_id);
-  }
-
-  getSubscribers() {
-    return client.getSubscribers(this.event_id);
-  }
-
-  removeSubscriber() {
-    return client.removeSubscriber(this.event_id, this.user_id);
-  }
-
-  removeAllSubscribe() {
-    return client.removeAllSubscribe(this.user_id);
-  }
-
   randomInteger(min, max) {
     var rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
@@ -156,6 +123,17 @@ class Model {
      return client.getAllEvents();
   }
 
+  writeComment(comment_text) {
+    return client.writeComment(this.event_id, this.user_id, this.imgSrc, this.name, comment_text);
+  }
+
+  readComments() {
+    return client.readComments(this.event_id);
+  }
+
+  deleteComment(_id) {
+    return client.deleteComment(_id);
+  }
 }
 
 export default Model;
