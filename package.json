@@ -25,7 +25,7 @@
     "pug": "^2.0.0-beta11",
     "react": "^15.4.2",
     "react-avatar-editor": "^9.1.1",
-    "react-bootstrap": "^0.30.8",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.4.2",
     "semantic-ui-react": "^0.68.0",
     "time-ago": "^0.1.0"
