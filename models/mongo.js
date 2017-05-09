@@ -2,7 +2,7 @@ var mongoose = require('../lib/mongoose');
 
 var Schema = mongoose.Schema;
 
-var schema = new Schema({
+var event_schema = new Schema({
     id: Number,
     title: String,
     info: String,
@@ -33,6 +33,6 @@ var comment_schema = new Schema({
 
 mongoose.Promise = global.Promise;
 
-exports.post = mongoose.model('post', schema);
+exports.event = mongoose.model('event', event_schema);
 exports.subscribe = mongoose.model('subscribe', subscribe_schema);
 exports.comment = mongoose.model('comment', comment_schema);

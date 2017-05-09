@@ -49,4 +49,8 @@ gulp.task('watch', ['build'], function () {
     gulp.watch(['components/main/*.jsx', 'components/*.jsx', 'models/model.js', 'client/client.js', 'db/index.js'], ['build']);
 });
 
+gulp.task('home', ['build_home'], function () {
+    gulp.watch(['components/home/*.jsx', 'models/model_home.js', 'client/client.js', 'db/index.js'], ['build_home']);
+});
+
 gulp.task('default', ['watch']);

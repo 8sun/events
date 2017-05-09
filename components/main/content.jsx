@@ -15,6 +15,11 @@ class Content extends React.Component {
 
 		model = this.props.model;
 
+		this.snippet = '';
+		this.text = '';
+		this.title = '';
+
+
 		model.getTranslate();
 		this.state = {
     		subscribed: false,
@@ -22,8 +27,17 @@ class Content extends React.Component {
 
 
 		const event_id = window.location.href.match(/\/event\/(\d+)/)[1];
-		model.event_id = event_id;
-		model.getContentEvent(event_id);
+		this.getContent(event_id);
+
+		this.error = null;
+	}
+
+	getContent = event_id => {
+    	model.getContentEvent(event_id).then(result => {
+		this.snippet = result.getContentEvent.snippet;
+		this.text = result.getContentEvent.text;
+		this.title = result.getContentEvent.title;
+		}, resolve => this.error = resolve);
 	}
 
 	toTop = () => {
@@ -62,9 +76,9 @@ class Content extends React.Component {
 						<Grid.Column width={12}>
 							<h3>{model.t['hello']}</h3>
 							<div className="content">
-								<blockquote dangerouslySetInnerHTML={{__html: model.snippet.replace(/\[\$\]/g, model.name)}} />
-								<h2 dangerouslySetInnerHTML={{__html: model.title}} />
-								<div dangerouslySetInnerHTML={{__html: model.text.replace(/\[\$\]/g, model.name)}} />
+								<blockquote dangerouslySetInnerHTML={{__html: this.snippet.replace(/\[\$\]/g, model.name) || this.snippet}} />
+								<h2 dangerouslySetInnerHTML={{__html: this.title}} />
+								<div dangerouslySetInnerHTML={{__html: this.text.replace(/\[\$\]/g, model.name) || this.text}} />
 			                    {!this.state.subscribed 
 			                    	? (<div>
 				                    		<Divider />

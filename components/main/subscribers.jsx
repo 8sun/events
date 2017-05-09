@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Grid, Image, Form, Message, Feed, Icon, Button } from 'semantic-ui-react'
+import { Container, Grid, Image, Form, Message, Feed, Icon, Button, Popup } from 'semantic-ui-react'
+import User from "./user"
 import timeAgo from "time-ago"
 const ta = timeAgo(); 
 
@@ -12,7 +13,7 @@ class  Subscribers extends Component {
 
 		model = this.props.model;
 
-		model.getContent();
+		model.getGuest();
 
 		model.getTranslate();
 		this.subscribers = [];
@@ -24,6 +25,7 @@ class  Subscribers extends Component {
     		isSubscribers: false,
     		inTheme: "false",
     		error: "",
+    		disabled: false,
   		};
 
 		const event_id = window.location.href.match(/\/event\/(\d+)/)[1];
@@ -33,9 +35,11 @@ class  Subscribers extends Component {
 	}
 
 	showInputEmail = () => {
-		this.setState({
-			inputEmail: true
-		});
+		if (model.isUser) {
+			this.setState({ inputEmail: true, email: model.isUser.email, disabled: true });
+		} else {
+			this.setState({ inputEmail: true });
+		}
 	}
 
 	getValidationState = () => {
@@ -57,9 +61,9 @@ class  Subscribers extends Component {
 		return true;
 	}
 
-	subscribe = (event) => {
+	subscribe = (event = false) => {
 
-		event.preventDefault();
+		if (event) event.preventDefault();
 
 		if (!this.validateEmail()) {
 			this.setState({ error: model.t['error_email'] });
@@ -92,7 +96,7 @@ class  Subscribers extends Component {
 	getSubscribers = () => {
 		const data = model.getSubscribers();
 		data.then(response => {
-			this.subscribers = JSON.parse(response.getSubscribers);
+			this.subscribers = response.getSubscribers;
 			this.setState({ isSubscribers: true });
 		});
 	}
@@ -101,7 +105,7 @@ class  Subscribers extends Component {
 		const data = model.removeSubscriber();
 		data.then(response => {
 			if (response.removeSubscriber) {
-				this.setState({ subscribed: false, inputEmail: true, inTheme: "false", error: "" });
+				this.setState({ subscribed: false, inputEmail: false, inTheme: "false", error: "" });
 				this.getSubscribers();
 			}
 		});
@@ -123,7 +127,12 @@ class  Subscribers extends Component {
 		return (
 	      <Form>
 	        <Form.Group widths='equal'>
-	          <Form.Input value={this.state.email} label={model.t['text_for_email']} placeholder={model.t['email_placeholder']} onChange={this.inputEmailChange} />
+		        <Popup
+				    trigger={<Form.Input disabled={this.state.disabled} value={this.state.email} placeholder={model.t['email_placeholder']} onChange={this.inputEmailChange} />}
+				    header='Note please!'
+				    content={model.t['text_for_email']}
+				    on='hover'
+			  	/>
 	        </Form.Group>
 	        <Form.Checkbox label={model.t['in_theme']} value={this.state.inTheme} onChange={this.checked} />
 	        {this.state.error
@@ -144,7 +153,7 @@ class  Subscribers extends Component {
 		      <Feed.Content>
 		        <Feed.Date>{ta.ago(new Date(user.created))}</Feed.Date>
 		        <Feed.Summary>
-		          You added <a>{user.name}</a> to your <a>coworker</a> group.
+		        	<User user={user} model={model} trigger={<div><a>{user.name}</a> is subscribed on this event.</div>}/>
 		        </Feed.Summary>
 		      </Feed.Content>
 		    </Feed.Event>

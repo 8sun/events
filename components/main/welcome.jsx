@@ -7,7 +7,7 @@ import { observer } from 'mobx-react';
 class Welcome extends React.Component {
 
 	palm() {
-		if (this.props.model.isEnter) {
+		if (this.props.model.isGuest) {
 			return <Content model={this.props.model} />
 		} else {
 			return <LoginForm model={this.props.model} />;

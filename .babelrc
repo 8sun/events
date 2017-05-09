@@ -1,0 +1,11 @@
+{
+  "plugins": [
+  	"transform-decorators-legacy",
+  	"syntax-async-functions"
+  ],
+  "presets": [
+    "react",
+    "es2015",
+    "stage-1"
+  ],
+}

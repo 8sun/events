@@ -18,7 +18,7 @@ var data = [
 	hello: "Well,",
 	we_have_good_news: 'We have good news',
 	do_not: "I don't want to participate in this event.",
-	inputEmail: "I want to take part in the event",
+	inputEmail: "Join",
 	subscribers: "Subscribers",
 	is_subscribe: "You are subscribes",
 	unsubscribe: "Unsubscribe",

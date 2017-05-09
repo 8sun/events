@@ -1,14 +1,41 @@
 import React, { Component } from 'react'
-import { Container, Grid, Image } from 'semantic-ui-react'
-import UserModal from './modal';
+import { Container, Grid, Image, Button } from 'semantic-ui-react'
+import Guest from './guest';
+import User from './user';
 
-class Userline extends Component {
+// class Userline extends Component {
 
-	render() {
+// 	render() {
 
-		let model = this.props.model;
+// 		let model = this.props.model;
+// 		let guest = {name: model.name, img: model.imgSrc}
 
-		return <div className="userline">
+// 		return <div className="userline">
+// 			<Container>
+// 				<Grid padded className="event">
+// 					<Grid.Row>
+// 			      		<Grid.Column width={12}>
+// 							<img className="ava" src={model.imgSrc ? model.imgSrc : "/images/noavatar.png"} />
+// 							{model.name}
+// 						</Grid.Column>
+// 						<Grid.Column width={4}>
+// 							<Guest user={guest} model={model} trigger={<Button circular color="blue" icon='settings' />}/>
+// 						</Grid.Column>
+// 			    	</Grid.Row>
+// 				</Grid>
+// 			</Container>
+// 		</div>
+// 	}
+// }
+// 
+
+const Userline = ({ model }) => {
+	
+	const guest = {name: model.name, img: model.imgSrc}
+	const user = model.isUser;
+
+	return (
+	  	<div className="userline">
 			<Container>
 				<Grid padded className="event">
 					<Grid.Row>
@@ -17,13 +44,16 @@ class Userline extends Component {
 							{model.name}
 						</Grid.Column>
 						<Grid.Column width={4}>
-							<UserModal model={model} />
+							{user
+								? (<User user={user} model={model} trigger={<Button circular color="blue" icon='settings' />}/>)
+								: (<Guest user={guest} model={model} trigger={<Button circular color="blue" icon='settings' />}/>)
+							}
 						</Grid.Column>
 			    	</Grid.Row>
 				</Grid>
 			</Container>
 		</div>
-	}
+	)
 }
 
 export default Userline

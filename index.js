@@ -7,7 +7,7 @@ app.set('view engine', 'pug');
 app.use('/assets', express.static('assets'));
 app.use('/images', express.static('images'));
 
-app.use('/graphql', require('./models/graph.js'));
+app.use('/graphql', require('./api/graph.js'));
 
 app.get('/', require('./routes/index'));
 app.get('/event/:id', require('./routes/event'));

@@ -2,82 +2,86 @@
 
 //let db = dbs.data;
 
-import client from '../client/client';
+import client from '../api/client';
 
 import { observable } from 'mobx';
 
 class Model {
-  @observable isEnter = this.getContent();
+  @observable isGuest = this.getGuest();
+  @observable isUser = this.getUser();
   @observable t = {};
   @observable file = '';
-  @observable imagePreviewUrl = '';
-  @observable imgSrc = '';
-  @observable snippet = '';
-  @observable text = '';
-  @observable title = '';
-  @observable error = null;
 
   constructor() {
     this.user_id = null;
     this.name = '';
     this.language = 0;
     this.event_id = null;
+    this.imgSrc = '';
   }
 
   enter(name, language) {
     const user_id = this.randomInteger(1, 999) + "_" + Date.now();
-    const userdata = {user_id: user_id, name: name, language: language};
     
-    localStorage.setItem('userdata', JSON.stringify(userdata));
-
     this.user_id = user_id;
     this.name = name;
     this.language = +language;
-    this.isEnter = true;
+    this.isGuest = true;
 
-    this.makeImage();
+    const userdata = {user_id: user_id, name: name, language: language};
+    
+    this.makeImage(userdata, userdata => {
+      localStorage.setItem('userdata', JSON.stringify(userdata));
+    });
   }
 
-  getContent() {
+  getGuest() {
     const userdata = JSON.parse(localStorage.getItem('userdata'));
     if (userdata) {
       this.user_id = userdata.user_id;
       this.name = userdata.name;
-      this.language = Number(userdata.language);
+      this.language = + userdata.language;
+      this.imgSrc = userdata.img;
       return true;
     } else {
       return false;
     }
   }
 
+  getUser() {
+    const data = client.isUser(this.user_id);
+    data.then(response => {
+      if (response.isUser !== "false") {
+        this.isUser = response.isUser;
+      } else {
+        this.isUser = false;
+      }
+    });
+  }
+
   getTranslate () {
     return client.getTranslate(this.language)
     .then(result => {
-      this.imgSrc = JSON.parse(localStorage.getItem('img'));
       this.t = JSON.parse(result.getTranslate);
     });
   }
 
   getContentEvent(id) {
-    return client.getContentEvent(id)
-    .then(result => {
-      this.snippet = result.getContentEvent.snippet;
-      this.text = result.getContentEvent.text;
-      this.title = result.getContentEvent.title;
-    }, resolve => this.error = resolve);
+    this.event_id = id;
+    return client.getContentEvent(id);
   }
 
 
-  makeImage() {
+  makeImage(userdata, func) {
     let imgr = this.uploadImage(this.file);
     imgr.then( (r) => {
-      //console.log(r);
       if (r === "false") {
         r = false;
       }
       this.imgSrc = r;
-      localStorage.setItem('img', JSON.stringify(r));
-    } );
+      userdata.img = r;
+      func(userdata);
+    });
   }
 
   uploadImage(imageFile) {

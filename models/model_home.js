@@ -1,4 +1,4 @@
-import client from '../client/client';
+import client from '../api/client';
 
 import { observable } from 'mobx';
 

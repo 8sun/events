@@ -33,8 +33,12 @@ class Feeds extends Component {
 			        </Feed.Extra>
 			        <Feed.Meta>
 			          <Feed.Like>
-			            <Icon name='like' />
-			            5 Likes
+			            <Icon name='comment' />
+			            {item.commentsCount} Comments
+			          </Feed.Like>
+			          <Feed.Like>
+			            <Icon name='user' />
+			            {item.subscribersCount} Subscribers
 			          </Feed.Like>
 			        </Feed.Meta>
 			      </Feed.Content>

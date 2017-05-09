@@ -1,25 +1,25 @@
-import client from '../client/client';
+import client from '../api/client';
 import { observable } from 'mobx';
 import Model from './model';
 
 class SubscribersModel extends Model {
 
-  unsubscribe() {
-    localStorage.removeItem('img');
-    if(this.imgSrc != false) {
-      this.removeImage(this.imgSrc);
-    }
+  exit() {
     this.isSubscribe().then(res => {
       if(res) {
         this.removeAllSubscribe();
       }
       localStorage.removeItem('userdata');
-      this.isEnter = false;
+      this.isGuest = false;
     });
   }
 
   subscribe(email, inTheme) {
-    return client.subscribe(this.event_id, this.user_id, email, this.imgSrc, this.name, inTheme);
+    const promise = client.subscribe(this.event_id, this.user_id, email, this.imgSrc, this.name, inTheme);
+    promise.then(()=>{
+      this.isUser = this.getUser();
+    })
+    return promise;
   }
 
   isSubscribe() {
@@ -31,7 +31,11 @@ class SubscribersModel extends Model {
   }
 
   removeSubscriber() {
-    return client.removeSubscriber(this.event_id, this.user_id);
+    const promise = client.removeSubscriber(this.event_id, this.user_id);
+    promise.then(()=>{
+      this.isUser = this.getUser();
+    })
+    return promise;
   }
 
   removeAllSubscribe() {
