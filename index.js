@@ -17,6 +17,7 @@ app.post('/upload', require('./routes/upload').upload);
 app.delete('/rm_av', require('./routes/upload').remove);
 
 app.get('/sendMail', require('./routes/mail'));
+app.get('/recovery', require('./routes/recovery'));
 
 app.use(function(req, res, next) {
   if (req.url == '/forbidden') {

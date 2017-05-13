@@ -8,9 +8,12 @@ class SubscribersModel extends Model {
     this.isSubscribe().then(res => {
       if(res) {
         this.removeAllSubscribe();
+        if(this.imgSrc != false) {    
+          this.removeImage(this.imgSrc);  
+        }  
+        localStorage.removeItem('userdata');
+        this.isGuest = false;
       }
-      localStorage.removeItem('userdata');
-      this.isGuest = false;
     });
   }
 

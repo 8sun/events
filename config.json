@@ -1,4 +1,5 @@
 {
+	"domain": "127.0.0.1",
 	"port": 3000,
 	"mail": {
 		"clientId":"688211592173-gmvk675r25fbnpafnvqjuac4vgvoj3nt.apps.googleusercontent.com",
@@ -7,11 +8,11 @@
 		"token_uri":"https://accounts.google.com/o/oauth2/token",
 		"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
 		"clientSecret":"i2gLsgUe4x494fOok_HyZJ8t",
-		"refresh_token": "1/AES52Lp4tMViTJSVSWPgmVSMqool16J1kJ0q0B6ij3U",
-		"accessToken": "ya29.Gls1BPnrEluspneGg7pIoyLGJbinkqSnQrmMGHblXH7wgSzrKynRIxjIYL2UQyhVGh6GKOXMTXMx0nz46Cot5zqiUc2eCc4lLLd95FV_BZUH0nbDuFo9EzQRqeui",
+		"refresh_token": "1/V3jutmqO_vqvBvqXg1vjblRigE4GPHnZ3fOEwCVu24C4tdr66Yjg6D0pvHn1rWU4",
+		"accessToken": "ya29.GltFBIPkcBYTFwM1Ny91sviXHLGc_k563CGA3_SGHrpNVSxFcvNirSXLeb_TzDs2afeuNZD-O1TmbCaJSSVvrDfbQ05RxY_duvNvrpjkGmEbhnQCixBM4sbNPwB6",
 		"token_type": "Bearer", 
 		"expires_in": 3600, 
 		"user": "lovecraft.crowley@gmail.com",
 		"type": "OAuth2"
-	}
+	},
 }

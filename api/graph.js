@@ -119,8 +119,25 @@ var root = {
 
   isUser: function ({user_id}) {
 
-    return subscribe.findOne({'user_id': user_id}).then(function (res) {
+    return subscribe.findOne({'user_id': user_id}).then(async function (res) {
       if(res) {
+
+        const commentsCount = await comment.count({user_id: user_id}).then(function(count){
+          return count;
+        });
+
+        const subscribeCount = await subscribe.count({user_id: user_id}).then(function(count){
+          return count;
+        });
+
+        const firstDate = await subscribe.find({user_id: user_id},{created:1}).limit(1).sort({created:-1}).then(function(result){
+          return result[0].created;
+        });
+
+        res.commentsCount = commentsCount;
+        res.subscribeCount = subscribeCount;
+        res.firstDate = firstDate;
+
         return res;
       }
     });
