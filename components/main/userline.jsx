@@ -3,32 +3,6 @@ import { Container, Grid, Image, Button } from 'semantic-ui-react'
 import Guest from './guest';
 import User from './user';
 
-// class Userline extends Component {
-
-// 	render() {
-
-// 		let model = this.props.model;
-// 		let guest = {name: model.name, img: model.imgSrc}
-
-// 		return <div className="userline">
-// 			<Container>
-// 				<Grid padded className="event">
-// 					<Grid.Row>
-// 			      		<Grid.Column width={12}>
-// 							<img className="ava" src={model.imgSrc ? model.imgSrc : "/images/noavatar.png"} />
-// 							{model.name}
-// 						</Grid.Column>
-// 						<Grid.Column width={4}>
-// 							<Guest user={guest} model={model} trigger={<Button circular color="blue" icon='settings' />}/>
-// 						</Grid.Column>
-// 			    	</Grid.Row>
-// 				</Grid>
-// 			</Container>
-// 		</div>
-// 	}
-// }
-// 
-
 const Userline = ({ model }) => {
 	
 	const guest = {name: model.name, img: model.imgSrc}

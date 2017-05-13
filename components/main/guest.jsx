@@ -15,7 +15,7 @@ class GuestModal extends Component {
   deleteProfile = e => {
     const isSure = confirm(this.props.model.t["isSure"]);
     if(isSure) {
-      this.props.model.unsubscribe();
+      this.props.model.exit();
     }
   }
 

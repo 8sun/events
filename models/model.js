@@ -50,7 +50,7 @@ class Model {
 
   getUser() {
     const data = client.isUser(this.user_id);
-    data.then(response => {
+    return data.then(response => {
       if (response.isUser !== "false") {
         this.isUser = response.isUser;
       } else {
@@ -137,6 +137,29 @@ class Model {
 
   deleteComment(_id) {
     return client.deleteComment(_id);
+  }
+
+  recovery(email) {
+
+    return fetch('/sendMail?email=' + email, {method: 'GET'})
+      .then(function(response) {
+        return response.json();
+       })
+      .catch( alert );
+
+    // return new Promise((resolve, reject) => {
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.open('get', '/sendMail', true);    
+    //   xhr.onload = function () {
+    //     if (this.status == 200) {
+    //       resolve(this.response);
+    //       console.log(this.response);
+    //     } else {
+    //       reject(this.statusText);
+    //     }
+    //   };      
+    //   xhr.send({email: email});
+    // });
   }
 }
 

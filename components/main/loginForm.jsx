@@ -3,6 +3,7 @@ import InputField from './loginInput';
 import Avatar from './image';
 import { Container, Grid, Image, Message, Header, Step } from 'semantic-ui-react'
 import Crop from './crop2';
+import SignIn from './signIn';
 import { observer } from 'mobx-react';
 
 @observer
@@ -13,7 +14,7 @@ class LoginForm extends Component {
 			<Grid padded className="loginForm">
 				<Grid.Row>
 					<Grid.Column width={10}>
-						<Header as='h1'>Sign in</Header>
+						<Header as='h1'>Sign up</Header>
 						<Message color='blue'>
 						 	<Header size='medium'>To view the event you just need to fill some fields</Header>
 							Please, enter your name, add your photo and choose the language you need
@@ -39,7 +40,8 @@ class LoginForm extends Component {
         		
 
 	        		<Grid.Column width={6}>
-	        			<h3>Some interesting events:</h3>
+	        			<Header as='h2'>Sign in</Header>
+	        			<SignIn model={this.props.model} />
 	        		</Grid.Column>
         		</Grid.Row>
         	</Grid>

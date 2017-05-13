@@ -31,8 +31,15 @@ var comment_schema = new Schema({
     created: mongoose.Schema.Types.Date
 });
 
+var token_schema = new Schema({
+    email: String,
+    token: String,
+    created: mongoose.Schema.Types.Date
+});
+
 mongoose.Promise = global.Promise;
 
 exports.event = mongoose.model('event', event_schema);
 exports.subscribe = mongoose.model('subscribe', subscribe_schema);
 exports.comment = mongoose.model('comment', comment_schema);
+exports.token = mongoose.model('token', token_schema);

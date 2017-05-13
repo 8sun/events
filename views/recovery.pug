@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+  div.ui.active.inline.loader.centered
+  div.ui.container
+    div.ui.padded.grid
+      div.row
+        div.wide.computer.sixteen.column
+          div#root
+  script
+    | let user_id = "#{user.user_id}";
+    | let user_img = "#{user.img}";
+    | let user_name = "#{user.name}";
+  script(src='/assets/js/recovery.js')
