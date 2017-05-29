@@ -8,11 +8,13 @@ class SubscribersModel extends Model {
     this.isSubscribe().then(res => {
       if(res) {
         this.removeAllSubscribe();
-        if(this.imgSrc != false) {    
-          this.removeImage(this.imgSrc);  
-        }  
+        if(this.imgSrc != false) {
+          this.removeImage(this.imgSrc);
+        }
         localStorage.removeItem('userdata');
         this.isGuest = false;
+        this.file = null;
+        this.thumb = null;
       }
     });
   }
@@ -21,6 +23,7 @@ class SubscribersModel extends Model {
     const promise = client.subscribe(this.event_id, this.user_id, email, this.imgSrc, this.name, inTheme);
     promise.then(()=>{
       this.isUser = this.getUser();
+      this.sendmail(email);
     })
     return promise;
   }

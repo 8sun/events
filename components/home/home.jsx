@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Feed from './feed';
-import Modal from './modal';
 import Userline from '../main/userline';
 import { Container, Grid, Image } from 'semantic-ui-react';
 import Model from '../../models/subscribers';
@@ -21,8 +20,10 @@ class Home extends React.Component {
 
 	render() {
 
-		const el = document.querySelector(".loader");
-		el.classList.remove("active");
+		if (document.querySelector(".preloader")) {
+			const el = document.querySelector(".preloader");
+			el.remove();
+		}
 
 		return <div>
 			{model.isUser ? (<Userline model={model} />) : ''}
@@ -34,7 +35,7 @@ class Home extends React.Component {
 				        <Feed />
 				      </Grid.Column>
 				      <Grid.Column computer={6} tablet={8} mobile={16}>
-				        <Modal />
+
 				      </Grid.Column>
 				    </Grid.Row>
 				  </Grid>
@@ -46,4 +47,4 @@ class Home extends React.Component {
 ReactDOM.render(
 	<Home/>,
 	document.getElementById('root')
-	);
+);

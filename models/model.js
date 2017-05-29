@@ -4,13 +4,14 @@
 
 import client from '../api/client';
 
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
 
 class Model {
   @observable isGuest = this.getGuest();
   @observable isUser = this.getUser();
   @observable t = {};
-  @observable file = '';
+  @observable file = null;
+  @observable thumb = null;
 
   constructor() {
     this.user_id = null;
@@ -20,16 +21,16 @@ class Model {
     this.imgSrc = '';
   }
 
-  enter(name, language) {
+  @action enter(name, language) {
     const user_id = this.randomInteger(1, 999) + "_" + Date.now();
-    
+
     this.user_id = user_id;
     this.name = name;
     this.language = +language;
     this.isGuest = true;
 
     const userdata = {user_id: user_id, name: name, language: language};
-    
+
     this.makeImage(userdata, userdata => {
       localStorage.setItem('userdata', JSON.stringify(userdata));
     });
@@ -87,24 +88,24 @@ class Model {
   uploadImage(imageFile) {
     return new Promise((resolve, reject) => {
       let imageFormData = new FormData();
-      imageFormData.append('imageFile', imageFile);     
+      imageFormData.append('imageFile', imageFile);
       var xhr = new XMLHttpRequest();
-      xhr.open('post', '/upload', true);    
+      xhr.open('post', '/upload', true);
       xhr.onload = function () {
         if (this.status == 200) {
           resolve(this.response);
         } else {
           reject(this.statusText);
         }
-      };      
+      };
       xhr.send(imageFormData);
     });
   }
 
   removeImage(src) {
     return new Promise((resolve, reject) => {
-      var xhr = new XMLHttpRequest();      
-      xhr.open('delete', '/rm_av?src=.' + src, true);      
+      var xhr = new XMLHttpRequest();
+      xhr.open('delete', '/rm_av?src=.' + src, true);
       xhr.onload = function () {
         if (this.status == 200) {
           //console.log('FFFF', this.response);
@@ -112,7 +113,7 @@ class Model {
         } else {
           reject(this.statusText);
         }
-      };      
+      };
       xhr.send();
     });
   }
@@ -128,7 +129,7 @@ class Model {
   }
 
   writeComment(comment_text) {
-    return client.writeComment(this.event_id, this.user_id, this.imgSrc, this.name, comment_text);
+    return client.writeComment(this.event_id, this.user_id, this.imgSrc, this.name, comment_text).then(() => this.sendmail(null, comment_text));
   }
 
   readComments() {
@@ -141,7 +142,7 @@ class Model {
 
   recovery(email) {
 
-    return fetch('/sendMail?email=' + email, {method: 'GET'})
+    return fetch('/signIn?email=' + email, {method: 'GET'})
       .then(function(response) {
         return response.json();
        })
@@ -149,7 +150,7 @@ class Model {
 
     // return new Promise((resolve, reject) => {
     //   var xhr = new XMLHttpRequest();
-    //   xhr.open('get', '/sendMail', true);    
+    //   xhr.open('get', '/sendMail', true);
     //   xhr.onload = function () {
     //     if (this.status == 200) {
     //       resolve(this.response);
@@ -157,9 +158,18 @@ class Model {
     //     } else {
     //       reject(this.statusText);
     //     }
-    //   };      
+    //   };
     //   xhr.send({email: email});
     // });
+  }
+
+  sendmail(email, comment = null) {
+    return fetch('/sendMail', {method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'},
+      body: 'event_id=' + this.event_id + '&name=' + this.name + '&email=' + email + '&comment=' + comment})
+      .then(function(response) {
+        return response.json();
+       })
+      .catch( alert );
   }
 }
 

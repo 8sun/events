@@ -15,10 +15,13 @@ class Welcome extends React.Component {
 	}
 
     render() {
-    	const el = document.querySelector(".loader");
-		el.classList.remove("active");
-		
-        return <div className="page">{this.palm()}</div>;
+
+			if (document.querySelector(".preloader")) {
+				const el = document.querySelector(".preloader");
+				el.remove();
+			}
+
+      return <div className="page">{this.palm()}</div>;
     }
 }
 

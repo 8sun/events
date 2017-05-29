@@ -1,6 +1,9 @@
 extends layout.pug
 
 block content
-  div.ui.active.inline.loader.centered
+  .ui.active.transition.visible.inverted.dimmer.preloader
+    .content
+      .center
+        .ui.large.text.loader Loading
   div#root
-  script(src='/assets/js/bundle-home.js')
+  script(src='/assets/js/bundle-home.js' async)
