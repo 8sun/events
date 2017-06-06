@@ -9,11 +9,11 @@ var event_schema = new Schema({
     snippet: String,
     text: String,
     status: Boolean,
-    //createdAt: mongoose.Schema.Types.Date,
+    start: mongoose.Schema.Types.Date
 });
 
 var subscribe_schema = new Schema({
-    email: String,
+    email: { type: String, unique: true},
     event_id: Number,
     user_id: String,
     img: String,

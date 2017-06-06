@@ -4,6 +4,8 @@ import Subscribers from './subscribers';
 import Userline from './userline';
 import Comments from './comments';
 import { Container, Grid, Image, Button, Divider } from 'semantic-ui-react'
+import Countdown from './countdown'
+
 
 let model = {};
 
@@ -18,6 +20,7 @@ class Content extends React.Component {
 		this.snippet = '';
 		this.text = '';
 		this.title = '';
+		this.start = '';
 
 
 		model.getTranslate();
@@ -34,9 +37,10 @@ class Content extends React.Component {
 
 	getContent = event_id => {
     	model.getContentEvent(event_id).then(result => {
-		this.snippet = result.getContentEvent.snippet;
-		this.text = result.getContentEvent.text;
-		this.title = result.getContentEvent.title;
+				this.snippet = result.getContentEvent.snippet;
+				this.start = result.getContentEvent.start;
+				this.text = result.getContentEvent.text;
+				this.title = result.getContentEvent.title;
 		}, resolve => this.error = resolve);
 	}
 
@@ -47,7 +51,7 @@ class Content extends React.Component {
 		const className = "colorize";
 		const className2 = "arrow-top-show";
 		const arrow = document.querySelector('.arrow-top');
-		
+
 		if (inputEmail.classList) {
 		  inputEmail.classList.add(className);
 		  arrow.classList.add(className2);
@@ -74,12 +78,11 @@ class Content extends React.Component {
 				<Grid padded className="event">
 					<Grid.Row>
 						<Grid.Column width={12}>
-							<h3>{model.t['hello']}</h3>
 							<div className="content">
-								<blockquote dangerouslySetInnerHTML={{__html: this.snippet.replace(/\[\$\]/g, model.name) || this.snippet}} />
+								<div dangerouslySetInnerHTML={{__html: this.snippet.replace(/\[\$\]/g, model.name) || this.snippet}} />
 								<h2 dangerouslySetInnerHTML={{__html: this.title}} />
 								<div dangerouslySetInnerHTML={{__html: this.text.replace(/\[\$\]/g, model.name) || this.text}} />
-			                    {!this.state.subscribed 
+			                    {!this.state.subscribed
 			                    	? (<div>
 				                    		<Divider />
 				                    		<Button color="orange" onClick={this.toTop}>{model.t['i_want']}</Button>
@@ -94,6 +97,10 @@ class Content extends React.Component {
 							</div>
 					    </Grid.Column>
 					    <Grid.Column width={4}>
+								{this.start
+									? (<Countdown start={this.start} />)
+									: ''
+								}
 					    	<Subscribers model={model} toggleSubscribed={this.toggleSubscribed} />
 				    	</Grid.Column>
 			    	</Grid.Row>

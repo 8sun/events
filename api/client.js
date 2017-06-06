@@ -92,7 +92,7 @@ export default {
 		`);
 	},
 
-	
+
 
 	getContentEvent(id) {
 
@@ -110,6 +110,7 @@ export default {
 				text,
 				status,
 				commentsCount,
+				start,
 			}
 		}
 		`);
@@ -132,6 +133,7 @@ export default {
 				status,
 				commentsCount,
 				subscribersCount,
+				start,
 			}
 		}
 		`);

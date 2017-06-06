@@ -16,6 +16,7 @@ var schema = buildSchema(`
     status: Boolean!,
     commentsCount: Int,
     subscribersCount: Int,
+    start: String,
   },
   type ErrorType {
     key: String,
@@ -96,7 +97,7 @@ var root = {
       return e.save().then(function (ok) {
         return JSON.stringify(ok);
       })
-      
+
     });
   },
 
@@ -166,10 +167,10 @@ var root = {
           item.subscribeCount = subscribeCount;
           item.firstDate = firstDate;
           return item;
-        });  
+        });
       }
     });
-  },  
+  },
 
   removeSubscriber: function ({event_id, user_id}) {
 
@@ -186,7 +187,7 @@ var root = {
       }
 
     });
-  }, 
+  },
 
   removeAllSubscribe: function ({user_id}) {
 
@@ -202,14 +203,14 @@ var root = {
       }
 
     });
-  }, 
+  },
 
   getAllEvents: function () {
 
     // Working code for aggreagation MongoDB
-    // return event.aggregate({$limit:3}, 
-    //   {$unwind: "$id"}, 
-    //   {$lookup:{from:"comments", localField:"id", foreignField:"event_id", as: "comment"}}, 
+    // return event.aggregate({$limit:3},
+    //   {$unwind: "$id"},
+    //   {$lookup:{from:"comments", localField:"id", foreignField:"event_id", as: "comment"}},
     //   {$match: {"comments": {$ne: []}} },
     //   {$count: "comment"}).then(function (res) {
     //   if(!res) {
@@ -246,7 +247,7 @@ var root = {
       }
       return res;
     })
-      
+
   },
 
   readComments: function ({event_id}) {
@@ -274,7 +275,7 @@ var root = {
       }
 
     });
-  }, 
+  },
 
 };
 
