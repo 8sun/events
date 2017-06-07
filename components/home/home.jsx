@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import Feed from './feed';
 import Userline from '../main/userline';
 import { Container, Grid, Image } from 'semantic-ui-react';
+import UserHome from '../main/userhome'
 import Model from '../../models/subscribers';
 
 const model = new Model();
@@ -26,7 +26,6 @@ class Home extends React.Component {
 		}
 
 		return <div>
-			{model.isUser ? (<Userline model={model} />) : ''}
 			<Container>
 	    		<Grid padded className="homepage">
 				    <Grid.Row>
@@ -47,4 +46,9 @@ class Home extends React.Component {
 ReactDOM.render(
 	<Home/>,
 	document.getElementById('root')
+);
+
+ReactDOM.render(
+    <UserHome model={model} />,
+    document.getElementById('userhome')
 );

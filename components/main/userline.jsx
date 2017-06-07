@@ -4,7 +4,7 @@ import Guest from './guest';
 import User from './user';
 
 const Userline = ({ model }) => {
-	
+
 	const guest = {name: model.name, img: model.imgSrc}
 	const user = model.isUser;
 
@@ -14,7 +14,7 @@ const Userline = ({ model }) => {
 				<Grid padded className="event">
 					<Grid.Row>
 			      		<Grid.Column width={12}>
-							<img className="ava" src={model.imgSrc ? model.imgSrc : "/images/noavatar.png"} />
+							<img className="ava" src={model.imgSrc ? model.imgSrc : "/assets/images/avatar/small/matthew.png"} />
 							{model.name}
 						</Grid.Column>
 						<Grid.Column width={4}>

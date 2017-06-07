@@ -31,7 +31,7 @@ class UserModal extends Component {
         <Modal dimmer={dimmer} open={open} onClose={this.close} closeIcon='close'>
           <Modal.Header>Profile Information</Modal.Header>
           <Modal.Content image>
-            <Image wrapped size='medium' src={user.img != "false" ? user.img : "/images/noavatar.png"} />
+            <Image wrapped size='medium' src={user.img != "false" ? user.img : "/assets/images/avatar/large/matthew.png"} />
             <Modal.Description>
               <Header>User: {user.name}</Header>
 
@@ -39,8 +39,8 @@ class UserModal extends Component {
               <p>Comments: {user.commentsCount}</p>
               <p>On site since: {date.format(new Date(user.firstDate), 'DD MMMM YYYY')}</p>
 
-              {model.user_id === user.user_id ? 
-                
+              {model.user_id === user.user_id ?
+
                 (<div>
                   <Button size='tiny' primary animated='fade'>
                     <Button.Content visible>{model.t['change_profile']}</Button.Content>

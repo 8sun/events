@@ -24,7 +24,7 @@ class Comments extends React.Component {
 	addComment = e => {
 		e.preventDefault();
 		const comment = this.state.comment;
-		
+
 		if ((comment.length > 3) && (comment.length < 200)) {
 			const data = model.writeComment(encodeURI(comment));
 			data.then(() => this.readComments());
@@ -58,20 +58,20 @@ class Comments extends React.Component {
 		let error = this.state.error;
 
 		return <Comment.Group>
-		    
+
 		    <Header as='h3' dividing>Comments</Header>
 
 		    {comments != null ? comments.map((item, i) =>
 		    	(
 				    <Comment key={i}>
-				      <Comment.Avatar src={item.img != "false" ? item.img : "/assets/images/avatar/small/matt.jpg"} />
+				      <Comment.Avatar src={item.img != "false" ? item.img : "/assets/images/avatar/small/matthew.jpg"} />
 				      <Comment.Content>
 				        <Comment.Author as='a'>{item.name}</Comment.Author>
 				        <Comment.Metadata>
 				          <div>{ta.ago(new Date(item.created))}</div>
 				        </Comment.Metadata>
 				        <Comment.Text>{decodeURI(item.comment_text)}</Comment.Text>
-				        {this.isAuthor(item.user_id) ? 
+				        {this.isAuthor(item.user_id) ?
 				        	(
 					        <Comment.Actions>
 					        <Comment.Action onClick={() => this.deleteComment(item._id)}>Delete</Comment.Action>

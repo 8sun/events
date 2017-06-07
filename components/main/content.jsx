@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import Subscribers from './subscribers';
-import Userline from './userline';
 import Comments from './comments';
 import { Container, Grid, Image, Button, Divider } from 'semantic-ui-react'
 import Countdown from './countdown'
@@ -73,7 +72,6 @@ class Content extends React.Component {
 
 	render() {
 		return <div>
-			<Userline model={model} />
 			<Container>
 				<Grid padded className="event">
 					<Grid.Row>

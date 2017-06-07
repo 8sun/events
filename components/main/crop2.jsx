@@ -7,13 +7,12 @@ class MyEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      src: null,
+      src: '/assets/images/avatar/large/matthew.png',
       scale: 1
     };
   }
 
   onClickSave = () => {
-    this.setState({src: null});
     // This returns a HTMLCanvasElement, it can be made into a data URL or a blob,
     // drawn on another canvas, or added to the DOM.
     const canvas = this.editor.getImage();
@@ -26,14 +25,18 @@ class MyEditor extends React.Component {
     if (typeof canvasScaled.toBlob !== "undefined") {
       canvasScaled.toBlob(blob => {
         this.props.model.file = blob;
+        this.props.model.skip = true;
 
       }, "image/png", 0.75);
     } else if (typeof canvasScaled.msToBlob !== "undefined") {
       var blob = canvasScaled.msToBlob()
       this.props.model.file = blob;
+      this.props.model.skip = true;
     }
 
   }
+
+  onClickNext = () => this.props.model.skip = true
 
   setEditorRef = (editor) => {
     this.editor = editor;
@@ -63,32 +66,27 @@ class MyEditor extends React.Component {
 
   render() {
     return (
-      <div>
-        {!this.props.model.file
-          ? (
+      <div className="avatarUploadBox">
+        <span>Upload photo</span>
+        <div style={{
+          overflow: 'auto'
+        }}>
+          <div>
+            <div className="underAvatarUploader">
+              <AvatarEditor ref={this.setEditorRef} image={this.state.src} width={250} height={250} border={5} scale={parseFloat(this.state.scale)}/>
+            </div>
             <label className="uploadbutton">
-              <span>Upload photo</span>
               <div className="ui secondary button">Browse</div>
               <input type="file" onChange={this.onChange}/>
             </label>
-          )
-          : ''}
-        {this.state.src
-          ? (
-            <div style={{
-              overflow: 'auto'
-            }}>
-              <div>
-                <AvatarEditor ref={this.setEditorRef} image={this.state.src} width={250} height={250} border={10} scale={parseFloat(this.state.scale)}/>
-                <br/>
-                <div className="ui compact segment">
-                  <input name='scale' type='range' onChange={this.handleScale} min='1' max='2' step='0.01' defaultValue='1'/>
-                </div>
-                <Button content='Next' icon='right arrow' labelPosition='right' onClick={this.onClickSave}/>
-              </div>
+            <div className="ui compact segment">
+              <input name='scale' type='range' onChange={this.handleScale} min='1' max='2' step='0.01' defaultValue='1'/>
             </div>
-          )
-          : ''}
+            <Button className="BottomLeftPosition" content='Upload' icon='upload' primary labelPosition='right' onClick={this.onClickSave}/>
+            <Button className="BottomRightPosition" content='Skip' onClick={this.onClickNext} floated="right" icon='right arrow' labelPosition='right' />
+          </div>
+        </div>
+
       </div>
     )
   }

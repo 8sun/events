@@ -29,7 +29,7 @@ class GuestModal extends Component {
         <Modal dimmer={dimmer} open={open} onClose={this.close} closeIcon='close'>
           <Modal.Header>Guest Information</Modal.Header>
           <Modal.Content image>
-            <Image wrapped size='medium' src={user.img != "false" ? user.img : "/images/noavatar.png"} />
+            <Image wrapped size='medium' src={user.img ? user.img : "/assets/images/avatar/large/matthew.png"} />
             <Modal.Description>
               <Header>Your name: {user.name}</Header>
 

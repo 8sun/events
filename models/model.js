@@ -11,6 +11,7 @@ class Model {
   @observable isUser = this.getUser();
   @observable t = {};
   @observable file = null;
+  @observable skip = false;
   @observable thumb = null;
 
   constructor() {

@@ -54,3 +54,7 @@ gulp.task('home', ['build_home'], function () {
 });
 
 gulp.task('default', ['watch']);
+
+gulp.task('style', ['styles'], function () {
+    gulp.watch(['assets/css/style.styl'], ['styles']);
+});

@@ -50,7 +50,6 @@ class Countdown extends React.Component {
   };
 
   componentDidMount = () => {
-    console.log(this.props.start)
     var deadline = new Date(Date.parse(new Date(this.props.start)));
     this.initializeClock(deadline);
   };
@@ -59,7 +58,8 @@ class Countdown extends React.Component {
     return (
       <div>
 
-        <h1>Countdown Clock</h1>
+        <h4>Time to start</h4>
+        <p>The event will start: </p>
         <div id="clockdiv">
           <div>
             <span className="days">{this.state.daysSpan}</span>

@@ -6,14 +6,6 @@ import { observer } from 'mobx-react';
 @observer
 class Welcome extends React.Component {
 
-	palm() {
-		if (this.props.model.isGuest) {
-			return <Content model={this.props.model} />
-		} else {
-			return <LoginForm model={this.props.model} />;
-		}
-	}
-
     render() {
 
 			if (document.querySelector(".preloader")) {
@@ -21,7 +13,9 @@ class Welcome extends React.Component {
 				el.remove();
 			}
 
-      return <div className="page">{this.palm()}</div>;
+      return <div className="page">
+				{this.props.model.isGuest ? <Content model={this.props.model} /> : <LoginForm model={this.props.model} />}
+			</div>;
     }
 }
 

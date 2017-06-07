@@ -28,12 +28,10 @@
     transition 1s
 
 .ava
-    width 26px
+    width 70px
     border-radius 50%
-    border 2px solid #2b2d2b
-    margin-right 10px
-    float left
     vertical-align bottom
+    cursor pointer
 
 ul
     padding-left 0
@@ -160,7 +158,7 @@ label.uploadbutton
 label.uploadbutton input
     display none
 
-label.uploadbutton span
+.avatarUploadBox span
     display block
     margin 0 0 .28571429rem
     color rgba(0,0,0,.87)
@@ -174,34 +172,42 @@ label.uploadbutton span
 .slider
     position relative
     overflow hidden
-    width 500px
+    width 100%
     height 500px
 
 .crop
     position absolute
     left 0px
-    width 500px
+    width 100%
     height 500px
     transition 1s
+    background #fff
+    border 1px solid #ccc
+    border-radius 5px
+    padding: 20px
 
 .name
     position absolute
     left 0px
-    width 500px
+    width 100%
     height 500px
     transition 1s
+    background #fff
+    border 1px solid #ccc
+    border-radius 5px
+    padding: 20px
 
 .crop-hide
     transition 1s
-    left -500px
+    left -100%
 
 .name-hide
     transition 1s
-    left 500px
+    left 100%
 
 .avatars
     margin-bottom 10px
-    width 500px
+    width 100%
 
 .avatars
   img
@@ -216,17 +222,53 @@ label.uploadbutton span
   text-align center
   font-size 30px
   & > div
-    padding 10px
-    border-radius 3px
-    background #00BF96
+    padding 6px
+    border-radius 0px
+    background #f26b00
     display inline-block
   div
     & > span
-      padding 15px
+      padding 8px
       border-radius 3px
-      background #00816A
+      background #2b2d2b
       display inline-block
 
 .smalltext
   padding-top 5px
   font-size 16px
+
+.topBox
+  float left
+
+.topBox
+  & .ui
+    color #fff
+    text-align left
+
+.blueFont.ui
+    color #4183c4
+
+.blueBox.ui
+  background #4183c4
+
+.skip
+  float right
+  & span
+    @extend .avatarUploadBox span
+
+.page
+  & .ui.steps
+    width 100%
+
+.BottomRightPosition
+  bottom 10px !important
+  position absolute !important
+  right 20px !important
+
+.BottomLeftPosition
+  bottom 10px !important
+  position absolute !important
+  left 20px !important
+
+#userhome
+  float right

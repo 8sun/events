@@ -19,14 +19,14 @@ class FormExampleSubComponentControl extends Component {
     }
   }
 
-  handleBack = () => this.props.model.file = null
+  handleBack = () => this.props.model.skip = false
 
   render() {
     const { selectvalue, inputvalue } = this.state
     return <div>
-        <div className="avatars">
+      {this.props.model.thumb
+        ? <div className="avatars">
           <Message info>
-            <Message.Header>Your avatar</Message.Header>
             <img style={{
               width: '250px'
             }} src={this.props.model.thumb} alt=""/>
@@ -40,14 +40,15 @@ class FormExampleSubComponentControl extends Component {
             }} src={this.props.model.thumb} alt=""/>
           </Message>
         </div>
+        : ''}
         <Form>
           <Form.Group widths='equal'>
             <Form.Input label='Name and surname' name="input" placeholder='John Smith' value={inputvalue} onChange={this.inputHandleChange} />
             <Form.Select label='Interface language' name="select" options={options} placeholder='Interface language' value={selectvalue} onChange={this.selectHandleChange} />
           </Form.Group>
         </Form>
-        <Button content='Finish' primary icon='right arrow' labelPosition='right' onClick={this.handleClick} />
-        <Button floated='right' animated='vertical' onClick={this.handleBack}>
+        <Button className="BottomLeftPosition" content='Finish' primary icon='right arrow' labelPosition='right' onClick={this.handleClick} />
+        <Button className="BottomRightPosition" floated='right' animated='vertical' onClick={this.handleBack}>
           <Button.Content hidden>Back</Button.Content>
           <Button.Content visible>
             <Icon name='left arrow' />

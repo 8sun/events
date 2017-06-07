@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Grid, Image, Form, Message, Feed, Icon, Button, Popup } from 'semantic-ui-react'
 import User from "./user"
 import timeAgo from "time-ago"
-const ta = timeAgo(); 
+const ta = timeAgo();
 
 let model = {};
 
@@ -114,7 +114,7 @@ class  Subscribers extends Component {
 	checked = event => {
 		const target = event.target.previousElementSibling;
 	    const value = target.value === 'false' ? 'true' : 'false';
-	    
+
 	    // const name = target.name;
 	    // this.setState({
 	    //   [name]: value
@@ -149,7 +149,7 @@ class  Subscribers extends Component {
 	renderSubscribes = () => {
 		const listItems = this.subscribers.map((user) =>
 			 <Feed.Event key={user.user_id.toString()}>
-		      <Feed.Label image={user.img != "false" ? user.img : "/images/noavatar.png"} />
+		      <Feed.Label image={user.img != "false" ? user.img : "/assets/images/avatar/large/matthew.png"} />
 		      <Feed.Content>
 		        <Feed.Date>{ta.ago(new Date(user.created))}</Feed.Date>
 		        <Feed.Summary>
@@ -174,9 +174,10 @@ class  Subscribers extends Component {
 		return <div className="col-sm-4">
 	    	<br/>
 	    	<h4>{model.t['subscribers']}</h4>
+				<p>The list of subscribers on the event: </p>
 		    <div>{this.state.isSubscribers ? (this.renderSubscribes()) : ''}</div>
 		    <div>
-		    	{this.state.subscribed 
+		    	{this.state.subscribed
 		    		? (<div id="is_subscribe">{model.t['is_subscribe']}<br/><Button secondary onClick={this.removeSubscriber}>{model.t['unsubscribe']}</Button></div> )
 		    		: (<div><Button color="orange" id="inputEmail" onClick={this.showInputEmail}>{model.t['inputEmail']}</Button><div className="arrow-top"></div></div>)}
 		    </div>

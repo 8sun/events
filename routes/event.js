@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
 		var is = event.count({id : req.params.id});
 		is.then(function(response) {
 			if (response > 0) {
-				res.render('event', { title: 'Events. The easy service to share your events', message: 'Welcome!'})
+				res.render('event', { title: 'Events. Easy service to share your events', message: 'Welcome!'})
 			} else {
 				next();
 			}

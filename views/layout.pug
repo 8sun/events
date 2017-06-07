@@ -18,8 +18,10 @@ html
 
     section#page
       div.ui.container
-        h3= message
-        h4= title
+        div.topBox
+          h1.ui.header= message
+          h4.ui.header= title
+        div#userhome
 
     section#content
       block content

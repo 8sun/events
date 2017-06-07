@@ -15,6 +15,8 @@ class SubscribersModel extends Model {
         this.isGuest = false;
         this.file = null;
         this.thumb = null;
+        this.skip = false;
+        this.imgSrc = '';
       }
     });
   }

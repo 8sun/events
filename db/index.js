@@ -31,8 +31,8 @@ var data = [
 	settings: "Settings",
 	remove_profile: "Remove profile",
 	i_want: "I want to take part in the event!",
-	subscribe_description: `To subscribe нужно будет указаь E-mail, на который в случае каких-либо изменений, придет сообщение. 
-	Так же это нужно для учета количества учасников, так что не забудь подписаться. `,
+	subscribe_description: `To subscribe you should specify your Email, to which will be sending some changes such as comments and new subscribes.
+	It will also help to know a quantity involved. Don't forget to subscribe.  `,
 	isSure: "You are sure remove your profile? \n\nAfter removing your profile it will be unsubscribed from all events",
 },
 {
@@ -52,7 +52,7 @@ var data = [
 	settings: "Настройки",
 	remove_profile: "Удалить профиль",
 	i_want: "Хочу учавстовать!",
-	subscribe_description: `Чтобы подписаться нужно будет указаь E-mail, на который в случае каких-либо изменений, придет сообщение. 
+	subscribe_description: `Чтобы подписаться нужно будет указаь E-mail, на который в случае каких-либо изменений, придет сообщение.
 	Так же это нужно для учета количества учасников, так что не забудь подписаться. `,
 	isSure: "Вы действительно желаете удалить профиль? \n\nПосле удаления вы будете отписаны от всех событий на сайте",
 },
@@ -73,7 +73,7 @@ var data = [
 	settings: "Налаштування",
 	remove_profile: "Видалити профіль",
 	i_want: "Я хочу прийняти в цьому участь!",
-	subscribe_description: `Щоб підписатися потрібно вказати E-mail, на який будуть надходити зміни. 
+	subscribe_description: `Щоб підписатися потрібно вказати E-mail, на який будуть надходити зміни.
 	Це також потрібно для підрахунку кількості людей яки будуть приймати участь у події. `,
 	isSure: "Ви дійсно бажаєте видалити профіль? \n\nПісля видалення ви будете автоматично відписані від усіх подій",
 }
