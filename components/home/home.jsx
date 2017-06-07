@@ -26,18 +26,10 @@ class Home extends React.Component {
 		}
 
 		return <div>
-			<Container>
-	    		<Grid padded className="homepage">
-				    <Grid.Row>
-				      <Grid.Column computer={10} tablet={8} mobile={16}>
-				        <h1>Events: </h1>
-				        <Feed />
-				      </Grid.Column>
-				      <Grid.Column computer={6} tablet={8} mobile={16}>
-
-				      </Grid.Column>
-				    </Grid.Row>
-				  </Grid>
+			{model.isUser ? (<Userline model={model} />) : ''}
+			<Container>	    		
+				<h1>Recently events: </h1>
+				<Feed />				      
 	  		</Container>
   		</div>;
 	}
