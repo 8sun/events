@@ -53,4 +53,6 @@ gulp.task('home', ['build_home'], function () {
     gulp.watch(['components/home/*.jsx', 'models/model_home.js', 'client/client.js', 'db/index.js'], ['build_home']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('style', ['styles'], function () {
+    gulp.watch(['assets/css/style.styl'], ['styles']);
+});
