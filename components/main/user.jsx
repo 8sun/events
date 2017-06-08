@@ -56,7 +56,7 @@ class UserModal extends Component {
                     </Button.Content>
                   </Button>
 
-                  <Segment color='red'><b>Note</b> that if you remove your profile you also delete all your comments and your subscribes!</Segment>
+                  <Segment color='red'><b>Note</b> if you remove your profile you also delete all your comments and your subscribes!</Segment>
 
                 </div>) : ''}
 

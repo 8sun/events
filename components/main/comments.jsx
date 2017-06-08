@@ -64,7 +64,7 @@ class Comments extends React.Component {
 		    {comments != null ? comments.map((item, i) =>
 		    	(
 				    <Comment key={i}>
-				      <Comment.Avatar src={item.img != "false" ? item.img : "/assets/images/avatar/small/matthew.jpg"} />
+				      <Comment.Avatar src={item.img != "false" ? item.img : "/assets/images/avatar/small/matthew.png"} />
 				      <Comment.Content>
 				        <Comment.Author as='a'>{item.name}</Comment.Author>
 				        <Comment.Metadata>

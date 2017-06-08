@@ -39,8 +39,8 @@ class LoginForm extends Component {
 
 	        		<Grid.Column width={6}>
 								<Header as='h2'><Icon name='reply' /> Recover me</Header>
-								<p>Was you used the subscribe already?</p>
-								<p>Ok. Then you just might enter your email via you had been subscribed early</p>
+								<p>Were you subscribed earlier?</p>
+								<p>Ok. Then you just need to enter your email via you had been subscribed early</p>
 								<Message color='orange'>
 		        			<SignIn model={this.props.model} />
 								</Message>

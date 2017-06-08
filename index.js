@@ -3,7 +3,7 @@ var app = express();
 var config = require('./config');
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'pug');
@@ -16,6 +16,8 @@ app.use('/graphql', require('./api/graph.js'));
 app.get('/', require('./routes/index'));
 app.get('/event/:id', require('./routes/event'));
 app.get('/about', require('./routes/about'));
+app.get('/team', require('./routes/team'));
+app.get('/how_it_works', require('./routes/how_it_works'));
 
 app.post('/upload', require('./routes/upload').upload);
 app.delete('/rm_av', require('./routes/upload').remove);

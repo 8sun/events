@@ -21,7 +21,7 @@ class SignIn extends Component {
       const recovery = this.props.model.recovery(this.state.email);
       recovery.then(res => {
         if (res.send == true) {
-          this.setState({ ok: "Token has been sent to your email", error: "", email:"", loader: false });
+          this.setState({ ok: "Activation link has been sent to your email", error: "", email:"", loader: false });
         } else {
           this.setState({ error: "Error: Email is invalid", ok: "", email:"" });
         }

@@ -26,10 +26,9 @@ class Home extends React.Component {
 		}
 
 		return <div>
-			{model.isUser ? (<Userline model={model} />) : ''}
-			<Container>	    		
+			<Container>
 				<h1>Recently events: </h1>
-				<Feed />				      
+				<Feed />
 	  		</Container>
   		</div>;
 	}
