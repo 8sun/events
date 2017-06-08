@@ -70,6 +70,10 @@ class Content extends React.Component {
 		this.setState({ subscribed: value });
 	}
 
+	componentDidMount() {
+		startMap()
+	}
+
 	render() {
 		return <div>
 			<Container>
@@ -96,7 +100,7 @@ class Content extends React.Component {
 					    </Grid.Column>
 					    <Grid.Column width={4}>
 								{this.start
-									? (<Countdown start={this.start} />)
+									? (<Countdown start={this.start} model={model} />)
 									: ''
 								}
 					    	<Subscribers model={model} toggleSubscribed={this.toggleSubscribed} />

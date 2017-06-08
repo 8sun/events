@@ -1,0 +1,84 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="width=device-width, initial-scale=1")
+    link(rel="stylesheet",href="/assets/css/semantic.min.css")
+    link(rel="stylesheet",href="/assets/css/style.css")
+    link(rel="stylesheet",href="/assets/css/cropper.min.css")
+  body
+    header
+      div.ui.container
+        div.logo
+          a(href="/") Events
+        div.menu
+          a(href="/about") About
+          a(href="/help") Help
+          a(href="/owners") For owners
+
+    section#page
+      div.ui.container
+        div.topBox
+          h1.ui.header= message
+          h4.ui.header= title
+        div#userhome
+
+    section#description
+      div.ui.container
+        h3 Everything is here!
+        h4 Use the magical power
+        h5 of your imagination
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen-<br>derit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proi-<br>
+          a(href="") Read more
+
+    section#options
+      div.ui.container
+        ul.options
+          li
+            i.write.bordered.big.icon
+            p Create your events
+          li
+            i.share.bordered.big.icon
+            p Share your events
+          li
+            i.archive.bordered.big.icon
+            p Look different events
+          li
+            i.translate.bordered.big.icon
+            p Multilanguage interface
+
+    section#content      
+      div.ui.container
+        div.ui.grid
+          div.row
+            div.sixteen.wide.mobile.ten.wide.tablet.ten.wide.computer.column
+              block content         
+            div.sixteen.wide.mobile.six.wide.tablet.six.wide.computer.column
+              h1 We’re in social
+              div.socials 
+                a(href="")
+                  i.facebook.square.big.icon
+                a(href="")
+                  i.google.plus.square.big.icon
+                a(href="")
+                  i.youtube.square.big.icon
+                a(href="")
+                  i.github.square.big.icon
+                a(href="")
+                  i.vk.big.icon
+                a(href="")
+                  i.twitter.square.big.icon
+                a(href="")
+                  i.linkedin.square.big.icon  
+              h1 About Team
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+              button.ui.blue.inverted.button Know more 
+      
+
+    footer
+      div.ui.container
+        div.rights  Created by <a href=""><span>8Sun Empire</span></a> under the <a href=""><span>MIT License<span></a><br>Version 0.14
+        div.footer_menu
+           a(href="").chosen  About us    
+           a(href="") How it works    
+           a(href="") Sign In

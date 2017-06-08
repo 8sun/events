@@ -1,8 +1,13 @@
 import React from 'react';
 
+let model = {};
+
 class Countdown extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+
+    model = this.props.model
+    //model.getTranslate()
 
     this.state = {
       clock: 0,
@@ -58,24 +63,24 @@ class Countdown extends React.Component {
     return (
       <div>
 
-        <h4>Time to start</h4>
-        <p>The event will start: </p>
+        <h4>{model.t['time_to_start']}</h4>
+        <p>{model.t['time_to_start_ad']}</p>
         <div id="clockdiv">
           <div>
             <span className="days">{this.state.daysSpan}</span>
-            <div className="smalltext">Days</div>
+            <div className="smalltext">{model.t['days']}</div>
           </div>
           <div>
             <span className="hours">{this.state.hoursSpan}</span>
-            <div className="smalltext">Hours</div>
+            <div className="smalltext">{model.t['hours']}</div>
           </div>
           <div>
             <span className="minutes">{this.state.minutesSpan}</span>
-            <div className="smalltext">Minutes</div>
+            <div className="smalltext">{model.t['minutes']}</div>
           </div>
           <div>
             <span className="seconds">{this.state.secondsSpan}</span>
-            <div className="smalltext">Seconds</div>
+            <div className="smalltext">{model.t['seconds']}</div>
           </div>
         </div>
 

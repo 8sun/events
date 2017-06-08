@@ -174,14 +174,14 @@ class  Subscribers extends Component {
 		return <div className="col-sm-4">
 	    	<br/>
 	    	<h4>{model.t['subscribers']}</h4>
-				<p>The list of subscribers on the event: </p>
+				<p>{model.t['subscribers_ad']}</p>
 		    <div>{this.state.isSubscribers ? (this.renderSubscribes()) : ''}</div>
 		    <div>
 		    	{this.state.subscribed
 		    		? (<div id="is_subscribe">{model.t['is_subscribe']}<br/><Button secondary onClick={this.removeSubscriber}>{model.t['unsubscribe']}</Button></div> )
 		    		: (<div><Button color="orange" id="inputEmail" onClick={this.showInputEmail}>{model.t['inputEmail']}</Button><div className="arrow-top"></div></div>)}
 		    </div>
-			<div>{this.state.inputEmail ? (this.renderForm()) : ''}</div>
+			<div className="subscribeEmail">{this.state.inputEmail ? (this.renderForm()) : ''}</div>
 	    </div>;
 	}
 }

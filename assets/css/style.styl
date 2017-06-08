@@ -5,7 +5,7 @@
 @font-face
     font-family Gotham
     src url(../fonts/Gotham-Pro-Light-Regular.ttf)
-    
+
 @font-face
     font-family Myriad_Pro
     src url(../fonts/Myriad_Pro.ttf)
@@ -21,7 +21,6 @@
 
 .arrow-top
     opacity 0
-    margin-top 20px
 
 .arrow-top-show
     background url(../img/arrow.png) no-repeat
@@ -127,23 +126,23 @@ section#page
       font-size 18px
       font-family Myriad_Pro
       line-height 1.211
-      
+
 .sign_in
-    float right   
+    float right
     font-size: 14px
     font-family: Myriad_Pro
     color: rgb(255, 255, 255)
     line-height: 1.129
     text-align: center
-    
+
 .create_it
-    float right   
+    float right
     font-size: 14px
     font-family: Myriad_Pro
     color: rgb(255, 255, 255)
     line-height: 1.129
     text-align: center
-      
+
 section#page
     button.ui.button
         width 152px
@@ -155,7 +154,7 @@ section#page
         text-align center
         text-transform uppercase
         margin 0 0 10px 10px
-        
+
 section#description
     background url(../../images/description_bg.png)
     background-size cover
@@ -181,7 +180,7 @@ section#description
         width: 555px
         padding: 0 5px
         font-family Myriad_Pro
-        
+
 section#description
     h5
         font-size: 48px
@@ -190,18 +189,18 @@ section#description
         background black
         margin: 0
         margin-top: 8px
-        width: 380px
+        width: 454px
         padding: 0px 5px
         font-family Myriad_Pro
-        
+
 section#description
     p
-        font-size: 12px     
+        font-size: 12px
         color: rgb(0, 0, 0)
         line-height: 1.651
         width: 328px
         height: 165px
-        text-align: justify        
+        text-align: justify
         overflow: hidden
         font-family Myriad_Pro
         margin-top 30px
@@ -210,10 +209,10 @@ section#description
             color: rgb(0, 0, 0)
             font-weight bold
             margin-top 10px
-            
- section#options     
+
+ section#options
     background #2b2d2b
-    
+
 ul.options
     display flex
     justify-content space-between
@@ -223,15 +222,15 @@ ul.options
         font-size: 12px
         font-family: Myriad_Pro
         line-height: 1.651
-        text-align: center  
-        i    
+        text-align: center
+        i
             background white
             border-radius 25%
             box-shadow none
         p
-            margin-top 10px     
+            margin-top 10px
             color rgb(240, 241, 235)
-            
+
 #content
     padding-bottom 50px
     h1
@@ -239,22 +238,16 @@ ul.options
         font-family: Myriad_Pro
         color: rgb(242, 107, 0)
         margin: 20px 0
-    button
-        box-shadow: 0 0 0 2px rgb(125, 127, 125) inset!important
-        color: rgb(125, 127, 125)
-        &:hover
-            box-shadow: 0 0 0 2px #54C8FF inset!important
-            color: #FFF
     p
         text-align: justify
-        
+
 .socials
     display flex
     justify-content space-between
     margin-bottom: 40px
     a
         color: #2b2d2b
-        
+
 .rights
     float left
     font-size: 14px
@@ -263,7 +256,7 @@ ul.options
     line-height: 1.415
     span
         color white
-        
+
 .footer_menu
     float right
     a
@@ -274,12 +267,12 @@ ul.options
         margin-left: 15px
         &:hover
             color: rgb(251, 254, 250)
-            
+
 a.chosen
     color: rgb(251, 254, 250)
 
 
-        
+
 .fileInput
     border-bottom 4px solid #d3d3d3
     border-right 4px solid #d3d3d3
@@ -382,14 +375,14 @@ label.uploadbutton input
 #clockdiv
   font-family sans-serif
   color #fff
+  background #f26b00
+  border-radius 5px
   display inline-block
   font-weight 100
   text-align center
   font-size 30px
   & > div
     padding 6px
-    border-radius 0px
-    background #f26b00
     display inline-block
   div
     & > span
@@ -437,80 +430,86 @@ label.uploadbutton input
 
 #userhome
   float right
-       
+
 @media (max-width: 767px)
-    .logo 
-        font-size: 30px  
-        
+    .logo
+        font-size: 30px
+
     section#page
         height: auto
         padding-bottom: 40px
-        button.ui.button 
+        button.ui.button
             width: 130px
             height: 50px
             color: #fbfefa
             font-size: 15px
             margin 0
-        h3  
+        h3
             font-size: 26px
             line-height 2
             margin 0
         h4
             font-size: 14px
-            margin-top 0   
-        
-    section#description 
+            margin-top 0
+
+    section#description
         height: auto
         padding-top: 40px
-        h3 
+        h3
             font-size: 35px
             margin-bottom: 50px
-        h4 
+        h4
             font-size: 30px
             width: 350px
-        h5 
+        h5
             font-size: 30px
             width: 241px
-   
+
 @media (max-width: 520px)
-    section#page        
-        h3   
-                         
-            clear: both          
+    section#page
+        h3
+
+            clear: both
            text-align center
         h4
-            text-align center   
-    
+            text-align center
+
     .sign_in
         float left
         margin-left 20px
         font-size: 12px
-    
+
     .create_it
         margin-right 40px
-        font-size: 12px    
-        
-@media (max-width: 394px)    
+        font-size: 12px
+
+@media (max-width: 394px)
     .sign_in
         float left
         margin-left 0
-    
+
     .create_it
-        margin-right 0  
-    
+        margin-right 0
+
     section#description
-        h3 
+        h3
             font-size: 30px
             margin-bottom: 35px
-        h4 
+        h4
             font-size: 25px
-            width: 295px 
-        h5 
+            width: 295px
+        h5
             font-size: 25px
             width: 205px
-        p 
+        p
             font-size: 10.5px
-            width: 294px  
-            
-    ul.options li p 
+            width: 294px
+
+    ul.options li p
         font-size: 10px
+
+#map
+  height 400px
+
+.subscribeEmail
+  margin-top 20px

@@ -1,7 +1,7 @@
 {
   "name": "events",
-  "version": "0.1.0",
-  "description": "gulp and react",
+  "version": "0.1.1",
+  "description": "events site",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

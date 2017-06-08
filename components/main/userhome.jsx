@@ -18,7 +18,7 @@ class Userhome extends Component {
 		const model = this.props.model
 		const guest = {name: model.name, img: model.imgSrc}
 
-		return <div>{this.props.model.isGuest ? <UserGuest props={{user, model, guest}} /> : ''}</div>
+		return <div>{this.props.model.isGuest ? <UserGuest props={{user, model, guest}} /> : <Buttons />}</div>
 	}
 }
 
@@ -29,6 +29,19 @@ const UserGuest = observer(({props}) =>
 					: <Guest user={props.guest} model={props.model} trigger={<img className="ava" src={props.model.imgSrc ? props.model.imgSrc : "/assets/images/avatar/small/matthew.png"} />}/>
 				}
 		</div>
+)
+
+const Buttons = observer(() =>
+	<div>
+		<div className="sign_in">
+			<button className="ui orange inverted button">sign in</button>
+			<p>Your personal profile<br/>for participating in events</p>
+		</div>
+		<div className="create_it">
+			<button className="ui blue inverted button">create it</button>
+			<p>Create an event<br/>by yourself</p>
+		</div>
+	</div>
 )
 
 export default Userhome

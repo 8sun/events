@@ -59,7 +59,7 @@ class Comments extends React.Component {
 
 		return <Comment.Group>
 
-		    <Header as='h3' dividing>Comments</Header>
+		    <Header as='h3' dividing>{model.t['comments']}</Header>
 
 		    {comments != null ? comments.map((item, i) =>
 		    	(
@@ -74,7 +74,7 @@ class Comments extends React.Component {
 				        {this.isAuthor(item.user_id) ?
 				        	(
 					        <Comment.Actions>
-					        <Comment.Action onClick={() => this.deleteComment(item._id)}>Delete</Comment.Action>
+					        <Comment.Action onClick={() => this.deleteComment(item._id)}>{model.t['remove']}</Comment.Action>
 					        </Comment.Actions>
 					        ) : ''}
 				      </Comment.Content>
@@ -85,7 +85,7 @@ class Comments extends React.Component {
 
 		    <Form reply onSubmit={this.addComment}>
 		      <Form.TextArea value={this.state.comment} onChange={this.handleChange} />
-		      <Button content='Add Coment' labelPosition='left' icon='edit' primary />
+		      <Button content={model.t['add_comment']} labelPosition='left' icon='edit' primary />
 		    </Form>
 		    {error != null ? error : ''}
 	  	</Comment.Group>;
