@@ -19,10 +19,10 @@ class Feeds extends Component {
 		model.getAllEvents().then(response => {
 
 			const events = response.getAllEvents;
-			
+
 			const listItems = events.map((item) =>
 				<Feed.Event key={item.id.toString()}>
-			      <Feed.Label image='/assets/images/avatar/small/joe.jpg' />
+			      <Feed.Label image='/assets/img/island.png' />
 			      <Feed.Content>
 			        <Feed.Summary>
 			          <a href={"/event/" + item.id + "/"}>{item.title}</a> posted on his page
@@ -47,7 +47,7 @@ class Feeds extends Component {
 
 			this.setState({listEvents: listItems});
 			this.forceUpdate();
-		}); 
+		});
 	}
 
 	render() {

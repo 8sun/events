@@ -82,7 +82,7 @@ class Content extends React.Component {
 						<Grid.Column width={12}>
 							<div className="content">
 								<div dangerouslySetInnerHTML={{__html: this.snippet.replace(/\[\$\]/g, model.name) || this.snippet}} />
-								<h2 dangerouslySetInnerHTML={{__html: this.title}} />
+								{ /* <h2 dangerouslySetInnerHTML={{__html: this.title}} /> */ }
 								<div dangerouslySetInnerHTML={{__html: this.text.replace(/\[\$\]/g, model.name) || this.text}} />
 			                    {!this.state.subscribed
 			                    	? (<div>
