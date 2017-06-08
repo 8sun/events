@@ -43,7 +43,6 @@ module.exports = function(req, res, next) {
 
     const {
       email,
-      name,
       comment
     } = item
 
@@ -51,11 +50,11 @@ module.exports = function(req, res, next) {
     let html = ''
 
     if (comment) {
-      text = 'The event (' + config.domain + '/event/' + event_id + ') that you subscribed to it has been received a new comment: /n' + comment + '/nFrom user: ' + name
-      html = '<a href="' + config.domain + '/event/' + event_id + '">The event</a> that you subscribed to it has been received a new comment: <br>' + comment + '<br>From user: ' + name
+      text = 'The event (' + config.domain + '/event/' + event_id + ') you subscribed for has receive a new comment: /n' + comment + '/nFrom user: ' + name
+      html = '<a href="' + config.domain + '/event/' + event_id + '">The event</a> you subscribed for has receive a new comment: <br>' + comment + '<br>From user: ' + name
     } else {
-      text = 'In the event (' + config.domain + '/event/' + event_id + ') that you subscribed to, a new user ' + name + ' has been subscribed'
-      html = 'In <a href="' + config.domain + '/event/' + event_id + '">the event</a> that you subscribed to, a new user ' + name + ' has been subscribed.'
+      text = 'On the event  (' + config.domain + '/event/' + event_id + ') that you subscribed for, user ' + name + ' has been subscribed.'
+      html = 'On <a href="' + config.domain + '/event/' + event_id + '">the event</a> that you subscribed for, user ' + name + ' has been subscribed.'
     }
 
     // create reusable transporter object using the default SMTP transport
