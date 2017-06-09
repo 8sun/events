@@ -43,6 +43,7 @@ module.exports = function(req, res, next) {
 
     const {
       email,
+      toName,
       comment
     } = item
 

@@ -178,7 +178,7 @@ class  Subscribers extends Component {
 		    <div>{this.state.isSubscribers ? (this.renderSubscribes()) : ''}</div>
 		    <div>
 		    	{this.state.subscribed
-		    		? (<div id="is_subscribe">{model.t['is_subscribe']}<br/><Button secondary onClick={this.removeSubscriber}>{model.t['unsubscribe']}</Button></div> )
+		    		? (<div id="is_subscribe"><Button secondary onClick={this.removeSubscriber}>{model.t['unsubscribe']}</Button></div> )
 		    		: (<div><Button color="orange" id="inputEmail" onClick={this.showInputEmail}>{model.t['inputEmail']}</Button><div className="arrow-top"></div></div>)}
 		    </div>
 			<div className="subscribeEmail">{this.state.inputEmail ? (this.renderForm()) : ''}</div>
