@@ -17,6 +17,7 @@ var schema = buildSchema(`
     commentsCount: Int,
     subscribersCount: Int,
     start: String,
+    icon: String,
   },
   type ErrorType {
     key: String,

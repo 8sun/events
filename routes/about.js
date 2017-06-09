@@ -1,5 +1,5 @@
 
-const text = `<img src="/assets/img/about.jpg" alt="about"><br><br>Events. The site is a platform for
+const text = `<img src="/assets/img/about.jpg" style="width:100%" alt="about"><br><br>Events. The site is a platform for
 placing custom events. They can be generated from the control panel, and user
 can customize the number of fields he needs and format their output on the page
 <br><br>

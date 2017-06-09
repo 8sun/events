@@ -111,6 +111,7 @@ export default {
 				status,
 				commentsCount,
 				start,
+				icon,
 			}
 		}
 		`);
@@ -134,6 +135,7 @@ export default {
 				commentsCount,
 				subscribersCount,
 				start,
+				icon,
 			}
 		}
 		`);

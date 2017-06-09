@@ -9,7 +9,8 @@ var event_schema = new Schema({
     snippet: String,
     text: String,
     status: Boolean,
-    start: mongoose.Schema.Types.Date
+    start: mongoose.Schema.Types.Date,
+    icon: String,
 });
 
 var subscribe_schema = new Schema({

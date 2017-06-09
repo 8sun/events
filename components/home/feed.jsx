@@ -22,7 +22,7 @@ class Feeds extends Component {
 
 			const listItems = events.map((item) =>
 				<Feed.Event key={item.id.toString()}>
-			      <Feed.Label image='/assets/img/island.png' />
+			      <Feed.Label image={'/images/icons/' + item.icon} />
 			      <Feed.Content>
 			        <Feed.Summary>
 			          <a href={"/event/" + item.id + "/"}>{item.title}</a> posted on his page
