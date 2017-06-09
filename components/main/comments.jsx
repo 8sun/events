@@ -52,6 +52,18 @@ class Comments extends React.Component {
 
 	isAuthor = user_id => user_id == model.user_id ? true : false;
 
+	clickOnAuthor = e => {
+		const name = e.target.innerHTML.replace(/\s/g, "_")
+		const comment = this.state.comment + "@" + name + " "
+		this.setState({comment: comment})
+	}
+
+	processComment = comment_text => {
+		return comment_text.replace(/@([^\s]*)/, function(i, t) {
+		  return "[" + t.replace(/_/g, " ") + "] → "
+		})
+	}
+
 	render() {
 
 		let comments = this.state.comments;
@@ -66,11 +78,11 @@ class Comments extends React.Component {
 				    <Comment key={i}>
 				      <Comment.Avatar src={item.img != "false" ? item.img : "/assets/images/avatar/small/matthew.png"} />
 				      <Comment.Content>
-				        <Comment.Author as='a'>{item.name}</Comment.Author>
+				        <Comment.Author onClick={this.clickOnAuthor} as='a'>{item.name}</Comment.Author>
 				        <Comment.Metadata>
 				          <div>{ta.ago(new Date(item.created))}</div>
 				        </Comment.Metadata>
-				        <Comment.Text>{decodeURI(item.comment_text)}</Comment.Text>
+				        <Comment.Text>{this.processComment(decodeURI(item.comment_text))}</Comment.Text>
 				        {this.isAuthor(item.user_id) ?
 				        	(
 					        <Comment.Actions>
