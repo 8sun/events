@@ -14,7 +14,8 @@ var event_schema = new Schema({
 });
 
 var subscribe_schema = new Schema({
-    email: { type: String, unique: true},
+    // email: { type: String, unique: true},
+    email: String,
     event_id: Number,
     user_id: String,
     img: String,
