@@ -41,6 +41,8 @@ var token_schema = new Schema({
 
 mongoose.Promise = global.Promise;
 
+subscribe_schema.index({email: 1, event_id: 1}, {unique: true});
+
 exports.event = mongoose.model('event', event_schema);
 exports.subscribe = mongoose.model('subscribe', subscribe_schema);
 exports.comment = mongoose.model('comment', comment_schema);
