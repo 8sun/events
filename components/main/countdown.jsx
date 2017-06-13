@@ -35,6 +35,9 @@ class Countdown extends React.Component {
 
   initializeClock = deadline => {
 
+    const nowDate = new Date(Date.parse(new Date()));
+    if (deadline <= nowDate) return
+
     const updateClock = () => {
       var t = this.getTimeRemaining(deadline);
 
