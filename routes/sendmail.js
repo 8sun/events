@@ -68,9 +68,9 @@ module.exports = function(req, res, next) {
 
     // setup email data with unicode symbols
     let mailOptions = {
-      from: '"Hello 👻" <myprettyevents@gmail.com>',
+      from: '"Events" <myprettyevents@gmail.com>',
       to: email,
-      subject: 'Hello ✔ Notification of Events',
+      subject: '✔ Notification of Events',
       text: text,
       html: html
     }

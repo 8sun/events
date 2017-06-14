@@ -5,20 +5,16 @@ import Model from './model';
 class SubscribersModel extends Model {
 
   exit() {
-    this.isSubscribe().then(res => {
-      if(res) {
-        this.removeAllSubscribe();
-        if(this.imgSrc != false) {
-          this.removeImage(this.imgSrc);
-        }
-        localStorage.removeItem('userdata');
-        this.isGuest = false;
-        this.file = null;
-        this.thumb = null;
-        this.skip = false;
-        this.imgSrc = '';
-      }
-    });
+    this.removeAllSubscribe();
+    if(this.imgSrc != false) {
+      this.removeImage(this.imgSrc);
+    }
+    localStorage.removeItem('userdata');
+    this.isGuest = false;
+    this.file = null;
+    this.thumb = null;
+    this.skip = false;
+    this.imgSrc = '';
   }
 
   subscribe(email, inTheme) {
