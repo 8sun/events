@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const {
   subscribe
 } = require('../models/mongo');
+const mailhtml = require('../lib/email');
 
 module.exports = function(req, res, next) {
 
@@ -43,7 +44,6 @@ module.exports = function(req, res, next) {
 
     const {
       email,
-      toName,
       comment
     } = item
 
@@ -52,10 +52,12 @@ module.exports = function(req, res, next) {
 
     if (comment) {
       text = 'The event (' + config.domain + '/event/' + event_id + ') you subscribed for has receive a new comment: /n' + comment + '/nFrom user: ' + name
-      html = '<a href="' + config.domain + '/event/' + event_id + '">The event</a> you subscribed for has receive a new comment: <br>' + comment + '<br>From user: ' + name
+      //html = '<a href="' + config.domain + '/event/' + event_id + '">The event</a> you subscribed for has receive a new comment: <br>' + comment + '<br>From user: ' + name
+      html = mailhtml.comment(item, event_id, config.domain, config.sun.url, name)
     } else {
       text = 'On the event  (' + config.domain + '/event/' + event_id + ') that you subscribed for, user ' + name + ' has been subscribed.'
-      html = 'On <a href="' + config.domain + '/event/' + event_id + '">the event</a> that you subscribed for, user ' + name + ' has been subscribed.'
+      //html = 'On <a href="' + config.domain + '/event/' + event_id + '">the event</a> that you subscribed for, user ' + name + ' has been subscribed.'
+      html = mailhtml.subscribe(item, event_id, config.domain, config.sun.url, name)
     }
 
     // create reusable transporter object using the default SMTP transport
