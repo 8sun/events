@@ -34,11 +34,11 @@ const UserGuest = observer(({props}) =>
 const Buttons = observer(() =>
 	<div>
 		<div className="sign_in">
-			<button className="ui orange inverted button">sign in</button>
+			<Button inverted color='orange'>sign in</Button>
 			<p>Your personal profile<br/>for participating in events</p>
 		</div>
 		<div className="create_it">
-			<button className="ui blue inverted button">create it</button>
+			<Button inverted color='blue'>create it</Button>
 			<p>Create an event<br/>by yourself</p>
 		</div>
 	</div>

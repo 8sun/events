@@ -79,7 +79,7 @@ class Content extends React.Component {
 			<Container>
 				<Grid padded className="event">
 					<Grid.Row>
-						<Grid.Column width={12}>
+						<Grid.Column mobile={16} tablet={16} computer={12}>
 							<div className="content">
 								<div dangerouslySetInnerHTML={{__html: this.snippet.replace(/\[\$\]/g, model.name) || this.snippet}} />
 								{ /* <h2 dangerouslySetInnerHTML={{__html: this.title}} /> */ }
@@ -98,7 +98,7 @@ class Content extends React.Component {
 								<Comments model={model}/>
 							</div>
 					    </Grid.Column>
-					    <Grid.Column width={4}>
+					    <Grid.Column mobile={16} tablet={16} computer={4}>
 								{this.start
 									? (<Countdown start={this.start} model={model} />)
 									: ''

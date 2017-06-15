@@ -13,7 +13,7 @@ class LoginForm extends Component {
 		return <Container>
 			<Grid padded className="loginForm">
 				<Grid.Row>
-					<Grid.Column width={10}>
+					<Grid.Column mobile={16} tablet={10} computer={10}>
 						<Header as='h2'><Icon name='sign in' /> Sign in</Header>
 					 	<Header size='medium'>To view the event you just need to fill some fields</Header>
 						Please, enter your name, add your photo and choose the language you need
@@ -37,7 +37,7 @@ class LoginForm extends Component {
 	        		</Grid.Column>
 
 
-	        		<Grid.Column width={6}>
+	        		<Grid.Column mobile={16} tablet={6} computer={6}>
 								<Header as='h2'><Icon name='reply' /> Recover me</Header>
 								<p>Were you subscribed earlier?</p>
 								<p>Ok. Then you just need to enter your email via you had been subscribed early</p>

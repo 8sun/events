@@ -50,7 +50,7 @@ gulp.task('watch', ['build'], function () {
 });
 
 gulp.task('home', ['build_home'], function () {
-    gulp.watch(['components/home/*.jsx', 'models/model_home.js', 'client/client.js', 'db/index.js'], ['build_home']);
+    gulp.watch(['components/main/userhome.jsx', 'components/home/*.jsx', 'models/model_home.js', 'client/client.js', 'db/index.js'], ['build_home']);
 });
 
 gulp.task('default', ['watch']);
