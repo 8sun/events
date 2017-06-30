@@ -478,20 +478,12 @@ label.uploadbutton input
         
         
 @media (max-width: 584px)   
-    .slider 
-        height: 565px       
-    .crop
-        height: 530px
-    .name 
-        height: 545px        
-        
-@media (max-width: 529px)   
-    .slider 
-        height: 625px       
-    .crop
-        height: 530px
-    .name 
-        height: 615px
+    .ui.info.message
+        img:last-child
+            display none
+    .ui.info.message
+        img:nth-child(2)
+            display none
             
 @media (max-width: 550px)
     #page        
@@ -549,6 +541,32 @@ label.uploadbutton input
 
     ul.options li p
         font-size: 10px
+        
+    .ui.info.message
+        img:first-child
+            width 180px !important
+            
+    .slider
+        height 485px
+    .crop
+        height 485px
+    .name
+        height 485px
+        
+@media (max-width: 357px)
+    .underAvatarUploader
+        canvas
+            width: 220px  
+    .slider
+        height 450px
+    .crop
+        height 450px
+    .name
+        height 450px   
+        
+@media (max-width: 330px)
+    .BottomLeftPosition
+        width: 100px    
 
 #map
   height 400px
